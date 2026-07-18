@@ -1,0 +1,56 @@
+# Prompt History — First 90 Days Checklist
+
+How I worked: one Claude conversation per session, one purpose per
+conversation. Each entry links the full conversation and pulls out the
+moments that shaped the project.
+
+---
+
+## Session 1 — Planning & Problem Selection — July 13–18, 2026.
+**Conversation link:** https://claude.ai/share/4a50ff87-5662-4979-ba30-c51b4807d644
+
+**Goal:** Choose the problem, define the value, and lock a v1 plan before
+writing any code.
+
+**Key decisions and the thinking behind them:**
+
+- **Blank list vs. pre-loaded list (Option C):** The call was whether the
+  app opens empty or opens already loaded with the critical first-90-days
+  tasks. I went with loaded. Technically it's the same build - one list of
+  tasks either way — but an empty page puts the weight back on a mind
+  that's already carrying too much. The app should walk in the door already
+  knowing what matters. Those starter tasks come from my own first 90 days
+  and from the people I sit across from every week, not from a brainstorm.
+
+- **Persistence stays required:** Claude made the case that saving to the
+  browser could wait, since the core idea gets proven without it. I took
+  half of that, which is; it's not the first thing we build, but I held that 
+  it stays required for v1. A checklist that forgets everything when you close
+  the browser is just a prettier piece of paper, and losing the paper is
+  half the problem I'm solving.
+
+- **Task IDs from day one:** Delete and edit didn't make v1, but I asked
+  for every task to carry a unique ID anyway. That way, when delete gets
+  built later, it's unscrewing a panel instead of tearing down a wall. Small
+  decision now, saves a restructure later.
+
+- **Holding the line on scope:** Claude raised a fair point — "I typed it
+  wrong" is the first friction a real user hits, so shouldn't delete be
+  required? I said no. The four required features are the ones that keep
+  the wall standing; delete is comfort, not structure. If you typo a task
+  in v1, you check it off and let it die. Not smooth, but it passes, and
+  delete sits first in line for stretch.
+
+- **The bench:** Notes on a task, a progress counter, and a print option
+  all went on the "what I'd build next" list. None of them came from
+  brainstorming features, they came from watching what actually trips
+  people up. Checking off "get ID" was never the hard part; knowing which
+  office and what to bring is. And a print option matters because device
+  access comes and goes in those first weeks. The bench is the bench,
+  none of it touches v1.
+
+**What I learned this session:** The biggest thing was the difference
+between proving an idea and shipping a tool. The proof is small - somebody
+opens the app, sees the list already there, checks something off. The tool
+is the rest. Planning it this way means every build session has one small
+job instead of me trying to swallow the whole thing at once.
