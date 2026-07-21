@@ -54,3 +54,41 @@ between proving an idea and shipping a tool. The proof is small - somebody
 opens the app, sees the list already there, checks something off. The tool
 is the rest. Planning it this way means every build session has one small
 job instead of me trying to swallow the whole thing at once.
+
+
+------
+
+## Session 2 — Skeleton + Deploy — July 19-20, 2026
+**Conversation link:** [paste the skeleton chat share link]
+
+**Goal:** Create the three-file skeleton (index.html, styles.css, empty
+script.js) with the page layout only — no features — then deploy to
+GitHub Pages.
+
+**Key moments and what I learned:**
+
+- **Hit my first console error and worked it like a builder.** After
+  clicking Add, Chrome showed: "Unsafe attempt to load URL file:// —
+  'file:' URLs are treated as unique security origins." Instead of
+  panicking, I read it, tested a fresh load (clean console), and called
+  it: this wasn't my code, it was my environment — Chrome not trusting
+  pages that run straight off the hard drive, reacting to the form's
+  default submit. Claude confirmed the read, and said distinguishing
+  code errors from environment errors is a judgment call that's hard to
+  fake.
+
+- **The prediction paid off.** I wrote in this log that the error would
+  disappear once the app lived at a real https address. After deploying
+  to GitHub Pages, I retested the same submit with the console open:
+  error gone. Observe, classify, predict, verify.
+
+- **Concepts banked this session:** forms have a default submit behavior
+  older than JavaScript itself (and event.preventDefault() is how our
+  script will take that job over next session); IDs vs. classes — an id
+  marks one specific element so JavaScript can find it without guessing,
+  a class styles a group.
+
+- **Deployed.** GitHub Pages, deploy-from-branch on main. Now every
+  git push updates the live site automatically.
+
+**Live URL:** https://lancecodes1.github.io/first-90-days-checklist/
