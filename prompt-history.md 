@@ -4,7 +4,7 @@ How I worked: one Claude conversation per session, one purpose per
 conversation. Each entry links the full conversation and pulls out the
 moments that shaped the project.
 
----
+-------
 
 ## Session 1 — Planning & Problem Selection — July 13–18, 2026.
 **Conversation link:** https://claude.ai/share/4a50ff87-5662-4979-ba30-c51b4807d644
@@ -56,10 +56,10 @@ is the rest. Planning it this way means every build session has one small
 job instead of me trying to swallow the whole thing at once.
 
 
-------
+---------
 
 ## Session 2 — Skeleton + Deploy — July 19-20, 2026
-**Conversation link:** [paste the skeleton chat share link]
+**Conversation link:** [https://claude.ai/share/489a9af4-de66-44cd-a1cf-e4d5ed8fa617]
 
 **Goal:** Create the three-file skeleton (index.html, styles.css, empty
 script.js) with the page layout only — no features — then deploy to
@@ -92,3 +92,51 @@ GitHub Pages.
   git push updates the live site automatically.
 
 **Live URL:** https://lancecodes1.github.io/first-90-days-checklist/
+
+
+----------
+
+## Session 3 — Feature 1a: Render Starter List — July 21, 2026
+**Conversation link:** [https://claude.ai/share/c7be64d4-eae3-4e3e-a750-563d09275868]
+
+**Goal:** Render my curated starter tasks as plain-text list items on page
+load. No interaction yet — that's 1b's territory. Scope ruling made up
+front: no checkbox markup this session, so each commit's changes match the
+feature it's named for.
+
+**Key moments and what I learned:**
+
+- **Red pen on the content: my domain, my call.** Claude drafted the ten
+  starter tasks. Two things weren't right, and I corrected them as the
+  expert: "SSI card" became "Get Social Security card" (SSI is a benefit
+  program, the card is a document — different things, and mixing them up
+  matters in my world), and birth certificate moved ABOVE state ID,
+  because one unlocks the other. The task order in this app isn't
+  decoration, it's the sequence I lived and the one I walk clients
+  through every week.
+
+- **Caught the AI's process error.** The build chat's closing instructions
+  said add and commit; no push. I flagged it: commit only checkpoints
+  locally; push is what publishes to GitHub, and my live deploy runs off
+  pushed main. Without it, the "done" feature exists on one laptop and
+  nowhere else.
+
+- **Recognized a known error instead of re-debugging it.** The file://
+  security message showed up again in local testing. Same artifact I
+  distinguished in Session 2 environment, not code, and it doesn't occur
+  on the deployed site. Logged and moved on.
+
+- **Concepts banked:** script placement at the bottom of <body> is why no
+  DOMContentLoaded is needed (the page above is already built when the
+  script runs); getElementById returns null on a miss, and calling
+  appendChild on null is a textbook runtime error, starts clean, dies at
+  the problem line, usually caused by something as small as an id typo.
+
+- **Design choice worth remembering:** textContent over innerHTML for
+  rendering task text, treats everything as plain text, never as code.
+  Safe default even with trusted data. And the tasks array stays the
+  single source of truth: 1b (toggle) and Feature 3 (localStorage) will
+  read and write the array, not scrape the page.
+
+**Commit:** "Render starter task list on page load"
+**Live check:** https://lancecodes1.github.io/first-90-days-checklist/
