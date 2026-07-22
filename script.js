@@ -1,6 +1,6 @@
 // script.js
 const tasks = [
-  { id: 1, text: "Get birth certificate", completed: false},
+  { id: 1, text: "Get birth certificate", completed: false },
   { id: 2, text: "Get state ID or driver's license", completed: false },
   { id: 3, text: "Get Social Security card", completed: false },
   { id: 4, text: "Report to parole/probation officer", completed: false },
@@ -12,11 +12,17 @@ const tasks = [
   { id: 10, text: "Start job search / register with reentry employment program", completed: false },
 ];
 const taskList = document.getElementById("task-list");
-tasks.forEach(function (task) {
-  const listItem = document.createElement("li");
-  listItem.textContent = task.text;
-  if (task.completed) {
-    listItem.classList.add("completed");
-  }
-  taskList.appendChild(listItem);
-});
+
+function renderTasks() {
+  taskList.innerHTML = "";
+  tasks.forEach(function (task) {
+    const listItem = document.createElement("li");
+    listItem.textContent = task.text;
+    if (task.completed) {
+      listItem.classList.add("completed");
+    }
+    taskList.appendChild(listItem);
+  });
+}
+
+renderTasks();
