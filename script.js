@@ -29,5 +29,13 @@ function renderTasks() {
 renderTasks();
 
 taskList.addEventListener("click", function (event) {
-  console.log(event.target.dataset.id);
+  const clickedId = event.target.dataset.id;
+  if (!clickedId) {
+    return;
+  }
+  const clickedTask = tasks.find(function (task) {
+    return task.id === Number(clickedId);
+  });
+  clickedTask.completed = !clickedTask.completed;
+  renderTasks();
 });
