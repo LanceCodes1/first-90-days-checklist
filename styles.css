@@ -44,3 +44,8 @@ header h1 {
 #task-list {
   list-style: none;
 }
+
+#task-list li.completed {
+  text-decoration: line-through;
+  color: #999;
+}
