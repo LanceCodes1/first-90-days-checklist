@@ -18,6 +18,7 @@ function renderTasks() {
   tasks.forEach(function (task) {
     const listItem = document.createElement("li");
     listItem.textContent = task.text;
+    listItem.dataset.id = task.id;
     if (task.completed) {
       listItem.classList.add("completed");
     }
