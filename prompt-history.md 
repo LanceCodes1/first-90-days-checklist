@@ -59,7 +59,7 @@ job instead of me trying to swallow the whole thing at once.
 ---------
 
 ## Session 2 — Skeleton + Deploy — July 19-20, 2026
-**Conversation link:** [https://claude.ai/share/489a9af4-de66-44cd-a1cf-e4d5ed8fa617]
+**Conversation link:** https://claude.ai/share/489a9af4-de66-44cd-a1cf-e4d5ed8fa617
 
 **Goal:** Create the three-file skeleton (index.html, styles.css, empty
 script.js) with the page layout only — no features — then deploy to
@@ -97,7 +97,7 @@ GitHub Pages.
 ----------
 
 ## Session 3 — Feature 1a: Render Starter List — July 21, 2026
-**Conversation link:** [https://claude.ai/share/c7be64d4-eae3-4e3e-a750-563d09275868]
+**Conversation link:** https://claude.ai/share/c7be64d4-eae3-4e3e-a750-563d09275868
 
 **Goal:** Render my curated starter tasks as plain-text list items on page
 load. No interaction yet — that's 1b's territory. Scope ruling made up
@@ -140,3 +140,66 @@ feature it's named for.
 
 **Commit:** "Render starter task list on page load"
 **Live check:** https://lancecodes1.github.io/first-90-days-checklist/
+
+
+-------
+
+## Session 4 — Feature 1b: Toggle Task Completion — July 21-22, 2026
+**Conversation link:** https://claude.ai/share/1fb2fea5-108d-4302-b7d5-1209b9ee5a85
+
+**Goal:** Click a task to mark it complete, click again to un-mark it,
+with the completed state living in the tasks array, not just the page.
+
+**How it got built, small slices, each verified before the next:**
+data model first (completed field plus class hook, proven with a
+hand-flip test before any click logic existed), render refactored into
+a reusable renderTasks function (proven repeat-safe by calling it twice
+from the console, count held at ten), data-id stamped on every li (the
+day-one ID decision finally cashing in, the claim-check stub linking
+each element back to its task), a delegated click listener that just
+logged ids (one guard at the building entrance instead of a guard at
+every door, survives re-renders and covers future tasks free), then the
+real toggle (guard clause, id lookup with a string-to-number conversion,
+flip, re-render), and finally the CSS that makes it visible.
+
+**Key moments and what I learned:**
+
+- **Three zones, not two.** Testing where clicks land, clicks on a task
+  log its id, clicks inside the list but off a task would log undefined,
+  and clicks outside the list log nothing at all because the listener
+  never hears them. Silence and undefined are two different negatives,
+  and telling them apart is what made the guard clause a decision
+  instead of a guess.
+
+- **Two bugs that never got to exist.** The Number() conversion (dataset
+  values are strings, array ids are numbers, and without converting, the
+  lookup would crash on every click) and the guard clause (clicks with
+  no data-id would crash the lookup). Both caught in review and testing
+  before they ever ran. Bugs avoided by process are still debugging
+  stories.
+
+- **Test before commit, always.** I asked whether I needed to commit
+  before tests would register and got the order straight: the browser
+  reads the saved file, Git is the record keeper, not the electricity.
+  Save, test, verify, then commit the verified work.
+
+- **Console-driven testing.** Learned to interrogate the live page by
+  hand from DevTools, flipping data and calling my own functions to
+  prove behavior before wiring anything permanent.
+
+- **Caught the AI twice at the finish line.** It suggested localStorage
+  as the next feature, but my build order puts add-a-task first so
+  persistence saves the complete picture. And its commit instructions
+  kept omitting git push, which is the difference between work that
+  exists on one laptop and work that exists in the world.
+
+**Commits:** Add completed field to task data model / Refactor task
+rendering into reusable renderTasks function / Add data-id attributes
+to rendered tasks / Add click listener to log clicked task id / Toggle
+task completion on click / Add strikethrough and dimmed styling for
+completed tasks
+
+**Live check:** Confirmed at https://lancecodes1.github.io/first-90-days-checklist/, 
+tasks cross off on click and come back on the second click.
+
+
