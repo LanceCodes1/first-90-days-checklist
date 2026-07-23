@@ -27,3 +27,7 @@ function renderTasks() {
 }
 
 renderTasks();
+
+taskList.addEventListener("click", function (event) {
+  console.log(event.target.dataset.id);
+});
