@@ -203,3 +203,41 @@ completed tasks
 tasks cross off on click and come back on the second click.
 
 
+
+--------
+
+## Session 5 — Feature 2: Add a Custom Task — July 23, 2026
+**Conversation link:** https://claude.ai/share/fc3c78a6-bd04-4bb6-9a56-2166cf13ca94
+
+**Goal:** Type a task, hit Add or Enter, and it joins the list as a full
+citizen: unique id, toggleable, input cleared, no page reload.
+
+**Key moments:**
+
+- **preventDefault retired my oldest error.** The wedge in the mail
+  slot's flap. The form still fires its submit event but the browser's
+  reload reflex gets cancelled, and with no navigation happening, the
+  file:// security error from Session 2 is gone for good. One line
+  closed a two-week loop.
+
+- **I flagged the empty-array edge before the code existed.** New ids
+  come from max-plus-one, so I asked what happens if the list is ever
+  empty. Answer: Math.max on nothing returns negative infinity, and
+  every add after that collides forever. One ternary of insurance,
+  id starts at 1 in an empty room. Third bug that never got to exist.
+
+- **An accident became a stress test.** I added "buy stamps" twice by
+  mistake, and the system handled it clean: same text, different ids,
+  one toggled complete while the other sat unchecked. Two identical
+  coats, different claim-check stubs, live proof of why tasks match by
+  id and not by text.
+
+- **Concept banked:** listen to the form's submit event, not the
+  button's click, because forms submit on Enter by default and submit
+  catches both roads with one wire.
+
+**Commits:** Wire form submit with preventDefault and input logging /
+Add custom task with unique id generation
+
+**Live check:** https://lancecodes1.github.io/first-90-days-checklist/
+
