@@ -43,8 +43,22 @@ taskList.addEventListener("click", function (event) {
 const addTaskForm = document.getElementById("add-task-form");
 const taskInput = document.getElementById("task-input");
 
+function addTask(text) {
+  if (text === "") {
+    return;
+  }
+
+  const newId = tasks.length === 0
+    ? 1
+    : Math.max(...tasks.map(function (task) { return task.id; })) + 1;
+
+  tasks.push({ id: newId, text: text, completed: false });
+  renderTasks();
+  taskInput.value = "";
+}
+
 addTaskForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const typedText = taskInput.value.trim();
-  console.log(typedText);
+  addTask(typedText);
 });
