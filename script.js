@@ -39,3 +39,12 @@ taskList.addEventListener("click", function (event) {
   clickedTask.completed = !clickedTask.completed;
   renderTasks();
 });
+
+const addTaskForm = document.getElementById("add-task-form");
+const taskInput = document.getElementById("task-input");
+
+addTaskForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const typedText = taskInput.value.trim();
+  console.log(typedText);
+});
