@@ -11,6 +11,19 @@ const tasks = [
   { id: 9, text: "Get transportation sorted (bus pass, license reinstatement)", completed: false },
   { id: 10, text: "Start job search / register with reentry employment program", completed: false },
 ];
+
+function loadTasks() {
+  const savedTasks = localStorage.getItem("tasks");
+
+  if (savedTasks !== null) {
+    return JSON.parse(savedTasks);
+  }
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  return tasks;
+}
+
+console.log(loadTasks());
 const taskList = document.getElementById("task-list");
 
 function renderTasks() {
