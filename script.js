@@ -51,6 +51,7 @@ taskList.addEventListener("click", function (event) {
   });
   clickedTask.completed = !clickedTask.completed;
   renderTasks();
+  saveTasks();
 });
 
 const addTaskForm = document.getElementById("add-task-form");
@@ -67,6 +68,7 @@ function addTask(text) {
 
   tasks.push({ id: newId, text: text, completed: false });
   renderTasks();
+  saveTasks();
   taskInput.value = "";
 }
 
@@ -75,3 +77,7 @@ addTaskForm.addEventListener("submit", function (event) {
   const typedText = taskInput.value.trim();
   addTask(typedText);
 });
+
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
