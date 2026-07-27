@@ -241,3 +241,49 @@ Add custom task with unique id generation
 
 **Live check:** https://lancecodes1.github.io/first-90-days-checklist/
 
+
+--------
+
+## Session 6 — Feature 3: localStorage Persistence — July 26, 2026
+**Conversation link:** https://claude.ai/share/12b9bbca-81fc-4ea9-99d7-f0aa28fc7e9d
+
+**Goal:** The whole list, starter tasks, completions, and custom adds,
+survives closing and reopening the browser. Last required feature.
+
+**Key moments:**
+
+- **I opened the session with the question I'd been carrying since
+  planning.** Before any code got written I asked what stops the
+  hardcoded starter list from overwriting saved progress on every page
+  load. The answer became the design instead of a patch: check the vault
+  first, and only fall back to the hardcoded array when storage is
+  empty, seeding it immediately so that branch never runs again. Spare
+  key under the mat, used once on move-in day, never touched after the
+  real key exists. That question was written down in Session 1 and
+  cashed in Session 6.
+
+- **Sequencing: load, wire, save.** Built loadTasks alone and proved it
+  in isolation, then wired it in as the real source of truth, then built
+  saveTasks alone, then called it at the two mutation points. I also
+  flagged mid-session that load without save is a dead end, a vault
+  nobody deposits into, so the save half got scheduled before the load
+  half was even finished.
+
+- **The first thing this app ever remembered.** Pushed a fake task into
+  memory from the console, called saveTasks by hand, refreshed, and it
+  came back. Every refresh before that moment in this project's life was
+  a reset to zero.
+
+- **Concepts banked:** localStorage only stores strings, so arrays get
+  sealed with JSON.stringify going in and rebuilt with JSON.parse coming
+  out. getItem returns null on a miss, and checking null specifically,
+  not just falsy, is what keeps an empty string from being misread as a
+  first visit and clobbering the vault. And the pattern that now governs
+  every future feature: any time the array changes, deposit it.
+
+**Commits:** Add loadTasks with first-visit seeding / Load tasks from
+localStorage with starter fallback / Add saveTasks to write tasks to
+localStorage / Save tasks to localStorage on toggle and add
+
+**Live check:** https://lancecodes1.github.io/first-90-days-checklist/
+
