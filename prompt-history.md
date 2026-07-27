@@ -287,3 +287,40 @@ localStorage / Save tasks to localStorage on toggle and add
 
 **Live check:** https://lancecodes1.github.io/first-90-days-checklist/
 
+---------
+
+## Session 7 — README — July 26, 2026
+**Conversation link:** https://claude.ai/share/e60ebebd-ff62-4aa9-bd0d-b85bf7417607
+
+**Goal:** Write the full README, all nine sections the spec requires.
+
+**Key moments:**
+
+- **Interviewed instead of drafted.** I had the AI ask me one section at
+  a time and write from my answers instead of generating content about a
+  problem it hasn't lived. The Problem section is my own account of the
+  first 72 hours home and what I see weekly as a navigator.
+
+- **Named the limitation instead of hiding it.** localStorage is
+  per-device, so the list doesn't sync between a phone and a laptop.
+  Device access is inconsistent in the first weeks after release, which
+  makes that a real gap, and I'd rather a reviewer read it from me than
+  discover it themselves.
+
+- **A 404 that wasn't what it looked like.** The prompt-history link
+  failed from the README even though the file was right there in the
+  repo. I opened the file directly and read the raw URL: it ended in
+  %20, a URL-encoded space, so the actual filename carried a trailing
+  space and the link pointed at a file that didn't exist. Renamed it
+  with git mv. In the bug taxonomy that's a data problem, bad filename,
+  not bad code.
+
+- **Knew what wasn't a bug.** The live site was showing a test task I'd
+  typed in earlier. That's persistence working correctly, my own
+  localStorage on my own device, not something a reviewer would ever
+  see. Confirmed it with an incognito check instead of assuming, then
+  cleared it for a clean demo.
+
+**Commits:** Write full README / Fix filename, remove trailing space
+from prompt-history.md
+
