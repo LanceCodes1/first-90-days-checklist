@@ -6,7 +6,7 @@ moments that shaped the project.
 
 -------
 
-## Session 1 — Planning & Problem Selection — July 13–18, 2026.
+## Session 1 — Planning & Problem Selection — July 13–18, 2026
 **Conversation link:** https://claude.ai/share/4a50ff87-5662-4979-ba30-c51b4807d644
 
 **Goal:** Choose the problem, define the value, and lock a v1 plan before
@@ -100,7 +100,7 @@ GitHub Pages.
 **Conversation link:** https://claude.ai/share/c7be64d4-eae3-4e3e-a750-563d09275868
 
 **Goal:** Render my curated starter tasks as plain-text list items on page
-load. No interaction yet — that's 1b's territory. Scope ruling made up
+load. No interaction yet, that's 1b's territory. Scope ruling made up
 front: no checkbox markup this session, so each commit's changes match the
 feature it's named for.
 
@@ -122,8 +122,8 @@ feature it's named for.
   nowhere else.
 
 - **Recognized a known error instead of re-debugging it.** The file://
-  security message showed up again in local testing. Same artifact I
-  distinguished in Session 2 environment, not code, and it doesn't occur
+  security message showed up again in local testing. Same artifact I 
+  diagnosed in Session 2, environment not code, and it doesn't occur 
   on the deployed site. Logged and moved on.
 
 - **Concepts banked:** script placement at the bottom of <body> is why no
@@ -139,7 +139,8 @@ feature it's named for.
   read and write the array, not scrape the page.
 
 **Commit:** "Render starter task list on page load"
-**Live check:** https://lancecodes1.github.io/first-90-days-checklist/
+**Live check:** Confirmed at https://lancecodes1.github.io/first-90-days-checklist/, 
+all ten starter tasks render in my order.
 
 
 -------
@@ -239,7 +240,8 @@ citizen: unique id, toggleable, input cleared, no page reload.
 **Commits:** Wire form submit with preventDefault and input logging /
 Add custom task with unique id generation
 
-**Live check:** https://lancecodes1.github.io/first-90-days-checklist/
+**Live check:** Confirmed at https://lancecodes1.github.io/first-90-days-checklist/, 
+added a task through the form on the live site and it appeared in the list.
 
 
 --------
@@ -285,7 +287,8 @@ survives closing and reopening the browser. Last required feature.
 localStorage with starter fallback / Add saveTasks to write tasks to
 localStorage / Save tasks to localStorage on toggle and add
 
-**Live check:** https://lancecodes1.github.io/first-90-days-checklist/
+**Live check:** Confirmed at https://lancecodes1.github.io/first-90-days-checklist/, 
+toggled a task and added a custom one on the live site, and both were still there on a later visit.
 
 ---------
 
