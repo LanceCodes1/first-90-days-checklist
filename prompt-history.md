@@ -324,3 +324,30 @@ localStorage / Save tasks to localStorage on toggle and add
 **Commits:** Write full README / Fix filename, remove trailing space
 from prompt-history.md
 
+
+-------
+
+## Session 8 — Code Review — July 27, 2026
+**Conversation link:** https://claude.ai/share/ed8b774e-33ba-4477-8669-4a00b3d223d4
+
+**Goal:** Review the finished code before submission, ranked by what a
+reviewer or interviewer would actually notice. Working against a clock,
+so I asked for the full list up front instead of one issue at a time.
+
+**Result:** One must-fix, a stale HTML comment saying tasks would be
+rendered "in the next session," left over from the skeleton and now
+claiming a shipped feature wasn't built. Removed it. Three nice-to-haves
+I deliberately left alone: function declaration order (works because of
+hoisting), addTask carrying five responsibilities, and a theoretical
+guard on find() that can't currently fail because ids always come from
+the rendered list. All three are answers I have rehearsed rather than
+code I changed under time pressure.
+
+**Interview reps banked:** why the click listener lives on the ul instead
+of each li, one guard at the entrance instead of a guard at every door,
+and it survives every re-render. And why Number() matters on the dataset
+comparison: dataset values are always strings, so "3" never equals 3,
+find returns undefined, and the next line crashes on every click. Not a
+silent bug, a crash.
+
+**Commit:** Remove stale rendering comment
