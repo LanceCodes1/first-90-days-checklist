@@ -1,5 +1,5 @@
 // script.js
-const tasks = [
+const starterTasks = [
   { id: 1, text: "Get birth certificate", completed: false },
   { id: 2, text: "Get state ID or driver's license", completed: false },
   { id: 3, text: "Get Social Security card", completed: false },
@@ -19,11 +19,11 @@ function loadTasks() {
     return JSON.parse(savedTasks);
   }
 
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-  return tasks;
+  localStorage.setItem("tasks", JSON.stringify(starterTasks));
+  return starterTasks;
 }
 
-console.log(loadTasks());
+const tasks = loadTasks();
 const taskList = document.getElementById("task-list");
 
 function renderTasks() {
